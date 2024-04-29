@@ -81,10 +81,11 @@ terminado
 testpath
 threadpoolctl
 toml
-torch==1.7.0+cpu
+torch
 torchaudio
-torchvision==0.8.1+cpu
-tornado
+
+torch==1.10.0
+
 traitletsx
 txt2tags
 typing-extensions
