@@ -1,62 +1,30 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-
-<!-- banner with chatbot -->
+<!-- banner -->
 <section class="banner_w3lspvt" id="home">
-    <div class="csslider infinity" id="slider1">
-        <div class="banner-top">
-            <div class="overlay">
-                <div class="container">
-                    <div class="w3layouts-banner-info text-center">
-						<!-- Banner content -->
-                        <h3 class="text-wh">Harvestify</h3>
-                        <h4 class="text-wh mx-auto my-4"><b>Get informed decisions about your farming strategy.</b></h4>
-                        <br>
-                        <h4 class="text-wh mx-auto my-4"><strong> Here are some questions we'll answer</strong></h4>
-                        <p class="text-li mx-auto mt-2">
-                            1. What crop to plant here? <br>
-                            2. What fertilizer to use? <br>
-                            3. Which disease do your crop have?<br>
-                            4. How to cure the disease?</p>
-                        <!-- //Banner content -->
-                        <!-- Chatbot section -->
-                        <section class="chatbot py-5">
-                            <div class="container py-md-5">
-                                <h3 class="heading mb-sm-5 mb-4 text-center"> Chatbot</h3>
-                                <div class="row chatbot-form">
-                                    <div class="col-md-8 mx-auto">
-                                        <form action="{{ url_for('chatbot_search') }}" method="POST">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Ask me anything about farming..." name="user_input" required>
-                                            </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Ask</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% if chatbot_response %}
-                                <div class="row mt-4">
-                                    <div class="col-md-8 mx-auto">
-                                        <div class="chatbot-response">
-                                            {{ chatbot_response }}
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                        </section>
-                        <!-- //Chatbot section -->
-
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="csslider infinity" id="slider1">
+	
+				<div class="banner-top">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info text-center">
+								<h3 class="text-wh">AgroSoln</h3>
+								<h4 class="text-wh mx-auto my-4"><b>"Every seed planted is a decision made; each harvest, a result of those choices."</b></h4>
+								<br>
+								<h4 class="text-wh mx-auto my-4"><strong> Here are some questions we'll answer</strong></h4>
+								<p class="text-li mx-auto mt-2">
+									1. What crop to plant here? <br>
+									2. What fertilizer to use? <br>
+									3. Which disease do your crop have?<br>
+									4. How to cure the disease?</p>
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
 </section>
-<!-- //banner with chatbot -->
+<!-- //banner -->
 
 <!-- core values -->
 <section class="core-value py-5">
@@ -136,9 +104,6 @@
         </div>
     </div>
 </div> -->
-
-
-</html>
 
 </html>
 
