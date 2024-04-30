@@ -1,6 +1,6 @@
 # Importing essential libraries and modules
-
-from flask import Flask, render_template, request, Markup
+from flask import Flask, render_template, request, redirect
+from flask import Markup
 import numpy as np
 import pandas as pd
 from utils.disease import disease_dic
@@ -64,13 +64,10 @@ disease_model.load_state_dict(torch.load(
     disease_model_path, map_location=torch.device('cpu')))
 disease_model.eval()
 
-
 # Loading crop recommendation model
-
 crop_recommendation_model_path = 'models/RandomForest2.pkl'
 crop_recommendation_model = pickle.load(
     open(crop_recommendation_model_path, 'rb'))
-
 
 # =========================================================================================
 
@@ -125,46 +122,35 @@ def predict_image(img, model=disease_model):
 # ===============================================================================================
 # ------------------------------------ FLASK APP -------------------------------------------------
 
-
 app = Flask(__name__)
 
 # render home page
-
-
 @ app.route('/')
 def home():
     title = 'AgroSoln - Home'
     return render_template('index.html', title=title)
 
 # render crop recommendation form page
-
-
 @ app.route('/crop-recommend')
 def crop_recommend():
     title = 'AgroSoln - Crop Recommendation'
     return render_template('crop.html', title=title)
 
 # render fertilizer recommendation form page
-
-
 @ app.route('/fertilizer')
 def fertilizer_recommendation():
     title = 'AgroSoln - Fertilizer Suggestion'
-
     return render_template('fertilizer.html', title=title)
 
 # render disease prediction input page
-
-
-
-
-# ===============================================================================================
+@ app.route('/disease-predict')
+def disease_input():
+    title = 'AgroSoln - Disease Detection'
+    return render_template('disease.html', title=title)
 
 # RENDER PREDICTION PAGES
 
 # render crop recommendation result page
-
-
 @ app.route('/crop-predict', methods=['POST'])
 def crop_prediction():
     title = 'AgroSoln - Crop Recommendation'
@@ -186,14 +172,10 @@ def crop_prediction():
             final_prediction = my_prediction[0]
 
             return render_template('crop-result.html', prediction=final_prediction, title=title)
-
         else:
-
             return render_template('try_again.html', title=title)
 
 # render fertilizer recommendation result page
-
-
 @ app.route('/fertilizer-predict', methods=['POST'])
 def fert_recommend():
     title = 'AgroSoln - Fertilizer Suggestion'
@@ -236,9 +218,7 @@ def fert_recommend():
     return render_template('fertilizer-result.html', recommendation=response, title=title)
 
 # render disease prediction result page
-
-
-@app.route('/disease-predict', methods=['GET', 'POST'])
+@app.route('/disease-predict', methods=['POST'])
 def disease_prediction():
     title = 'AgroSoln - Disease Detection'
 
@@ -259,7 +239,8 @@ def disease_prediction():
             pass
     return render_template('disease.html', title=title)
 
-
 # ===============================================================================================
+
+# Run Flask app
 if __name__ == '__main__':
     app.run(debug=False)
