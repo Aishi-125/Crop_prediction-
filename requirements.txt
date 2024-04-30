@@ -23,7 +23,7 @@ ipython
 ipython-genutils
 ipywidgets
 isort
-itsdangerous
+itsdangerous==1.1.0
 jedi
 Jinja2==2.11.2
 joblib
