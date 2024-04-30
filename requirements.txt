@@ -25,7 +25,7 @@ ipywidgets
 isort
 itsdangerous
 jedi
-Jinja2
+Jinja2==2.11.2
 joblib
 jsonschema
 jupyter
