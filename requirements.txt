@@ -14,7 +14,7 @@ decorator
 defusedxml
 docopt
 entrypoints
-Flask
+Flask==1.1.2
 future
 gunicorn
 idna
