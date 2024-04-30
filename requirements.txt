@@ -83,7 +83,6 @@ toml
 torchaudio
 torchvision==0.17.2
 torch==2.2.2
-traitletsx
 txt2tags
 typing-extensions
 urllib3
